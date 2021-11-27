@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="700.0" style="-fx-background-color: #e1f1ef;" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.FirstViewController">
    <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="158.0" layoutY="68.0" prefHeight="26.0"
           prefWidth="384.0" style="-fx-background-color: #77adda;" text="Чтобы посмотреть договоры, нажмите кнопку"
           textAlignment="CENTER" textFill="#fafafa">
