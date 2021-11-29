@@ -3,7 +3,6 @@ package sample.http_client;
 import org.apache.http.client.fluent.Content;
 import org.apache.http.client.fluent.Request;
 import sample.entity.Contract;
-import sample.http_server.MyHttpServer;
 import sample.util.Converter;
 
 import java.io.IOException;
@@ -18,16 +17,21 @@ public class MyHttpClient {
         List<Contract> contracts = new ArrayList<>();
 
         try {
-            MyHttpServer.startServer();
             getResult = Request.Get(URI)
                     .execute().returnContent();
             String jsonObject = getResult.asString();
-            Contract contract = Converter.jsonToObject(jsonObject);
-            contracts.add(contract);
+            System.out.println(jsonObject);
+            contracts = Converter.jsonToObject(jsonObject);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return contracts;
+    }
+
+    public static void main(String[] args) {
+        for (Contract contract :getContent()) {
+            System.out.println(contract.toString());
+        }
     }
 
 }

@@ -2,21 +2,22 @@ package sample.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.io.Serializable;
+public class Contract{
 
-public class Contract implements Serializable {
-
-    @JsonProperty("Id")
+    @JsonProperty("id")
     private int id;
 
-    @JsonProperty("Signing date")
+    @JsonProperty("signingDate")
     private String signingDate;
 
-    @JsonProperty("Contract id")
+    @JsonProperty("contractId")
     private int contractId;
 
-    @JsonProperty("Update date")
+    @JsonProperty("updateDate")
     private String updateDate;
+
+//    @JsonIgnore
+    private boolean checkbox;
 
     public Contract() {
     }
@@ -26,6 +27,14 @@ public class Contract implements Serializable {
         this.signingDate = signingDate;
         this.contractId = contractId;
         this.updateDate = updateDate;
+    }
+
+    public Contract(int id, String signingDate, int contractId, String updateDate, Boolean checkbox) {
+        this.id = id;
+        this.signingDate = signingDate;
+        this.contractId = contractId;
+        this.updateDate = updateDate;
+        this.checkbox = checkbox;
     }
 
     public int getId() {
@@ -58,6 +67,14 @@ public class Contract implements Serializable {
 
     public void setUpdateDate(String updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public boolean isCheckbox() {
+        return checkbox;
+    }
+
+    public void setCheckbox(boolean checkbox) {
+        this.checkbox = checkbox;
     }
 
     @Override

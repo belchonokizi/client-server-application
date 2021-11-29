@@ -21,7 +21,6 @@ public class MyHttpServer {
         server.start();
     }
 
-
     static class MyHandler implements HttpHandler {
         public void handle(HttpExchange t) throws IOException {
             OutputStream os = t.getResponseBody();

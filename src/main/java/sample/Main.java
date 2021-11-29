@@ -12,13 +12,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("view/first_view.fxml"))));
+        Parent root = FXMLLoader.load((Objects.requireNonNull(getClass().getResource("/view/first_view.fxml"))));
         primaryStage.setTitle("Contracts");
 
         primaryStage.setScene(new Scene(root, 700, 400));
         primaryStage.show();
     }
-
 
     public static void main(String[] args) {
         launch(args);

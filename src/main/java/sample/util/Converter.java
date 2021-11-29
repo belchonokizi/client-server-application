@@ -1,14 +1,14 @@
 package sample.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import sample.entity.Contract;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Converter {
-
-    private static final String BASE_FILE = "contract.json";
 
     public static String objectToJson(Object object) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
@@ -16,9 +16,12 @@ public class Converter {
         return jsonObject;
     }
 
-    public static Contract jsonToObject(String json) throws IOException {
+    public static List<Contract> jsonToObject(String json) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        Contract contract = mapper.readValue(json, Contract.class);
-        return contract;
+        List<Contract> contracts = mapper.readValue(json, new TypeReference<List<Contract>>() {
+        });
+
+        return contracts;
     }
 }
+
