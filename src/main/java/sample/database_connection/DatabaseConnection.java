@@ -32,10 +32,4 @@ public class DatabaseConnection {
         }
         return allContracts;
     }
-
-    public static void main(String[] args) {
-        for(Contract contract : getAllContract()) {
-            System.out.println(contract);
-        }
-    }
 }

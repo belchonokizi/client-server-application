@@ -2,7 +2,10 @@ package sample.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Contract{
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class Contract {
 
     @JsonProperty("id")
     private int id;
@@ -16,7 +19,6 @@ public class Contract{
     @JsonProperty("updateDate")
     private String updateDate;
 
-//    @JsonIgnore
     private boolean checkbox;
 
     public Contract() {
@@ -27,14 +29,7 @@ public class Contract{
         this.signingDate = signingDate;
         this.contractId = contractId;
         this.updateDate = updateDate;
-    }
-
-    public Contract(int id, String signingDate, int contractId, String updateDate, Boolean checkbox) {
-        this.id = id;
-        this.signingDate = signingDate;
-        this.contractId = contractId;
-        this.updateDate = updateDate;
-        this.checkbox = checkbox;
+        this.checkbox = returnCheckBox();
     }
 
     public int getId() {
@@ -75,6 +70,12 @@ public class Contract{
 
     public void setCheckbox(boolean checkbox) {
         this.checkbox = checkbox;
+    }
+
+    private boolean returnCheckBox() {
+        LocalDate updateLocalDate = LocalDate.parse(this.updateDate);
+        long resultDays = ChronoUnit.DAYS.between(updateLocalDate, LocalDate.now());
+        return resultDays <= 60;
     }
 
     @Override

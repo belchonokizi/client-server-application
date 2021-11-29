@@ -17,21 +17,12 @@ public class MyHttpClient {
         List<Contract> contracts = new ArrayList<>();
 
         try {
-            getResult = Request.Get(URI)
-                    .execute().returnContent();
+            getResult = Request.Get(URI).execute().returnContent();
             String jsonObject = getResult.asString();
-            System.out.println(jsonObject);
             contracts = Converter.jsonToObject(jsonObject);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return contracts;
     }
-
-    public static void main(String[] args) {
-        for (Contract contract :getContent()) {
-            System.out.println(contract.toString());
-        }
-    }
-
 }

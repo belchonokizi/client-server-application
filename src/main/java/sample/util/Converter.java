@@ -18,8 +18,7 @@ public class Converter {
 
     public static List<Contract> jsonToObject(String json) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        List<Contract> contracts = mapper.readValue(json, new TypeReference<List<Contract>>() {
-        });
+        List<Contract> contracts = mapper.readValue(json, new TypeReference<List<Contract>>() {});
 
         return contracts;
     }

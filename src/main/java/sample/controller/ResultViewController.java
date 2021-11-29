@@ -11,7 +11,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import sample.entity.Contract;
 
-//TODO: изменить тип данных дат
 public class ResultViewController {
 
     @FXML
